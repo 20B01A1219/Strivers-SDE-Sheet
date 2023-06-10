@@ -1,5 +1,5 @@
 // brute force code 
-//O((n*m)+(n*m * (n+m)+(n*m)) 
+//O((n*m)+(n*m * (n+m)), O(n*m)
 class Solution {
     public void setZeroes(int[][] matrix) {
         int[][] res = new int [matrix.length][matrix[0].length];
