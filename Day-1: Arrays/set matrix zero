@@ -26,3 +26,41 @@ class Solution {
         }
     }
 }
+
+
+
+
+//Better Approach
+//O(n*m + n*m), O(n + m)
+
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static ArrayList<ArrayList<Integer>> zeroMatrix(ArrayList<ArrayList<Integer>> matrix, Integer n, Integer m) {
+    	  ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+        int[] row = new int[n];
+        int[] col = new int[m];
+        Arrays.fill(row, 0);
+        Arrays.fill(col, 0);
+        for(int i = 0; i < n; i++){
+            res.add(new ArrayList<Integer>());
+            for(int j = 0;  j < m; j++){
+              res.get(i).add(matrix.get(i).get(j));
+              if(matrix.get(i).get(j) == 0){
+                  row[i] = 1;
+                  col[j] = 1;
+              }
+            }
+        }
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                if(row[i] == 1 || col[j] == 1){
+                    res.get(i).set(j, 0);
+                }
+            }
+        }
+       
+
+        return res;
+    }
+}
