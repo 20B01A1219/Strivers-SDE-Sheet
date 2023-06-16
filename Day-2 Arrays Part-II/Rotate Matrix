@@ -1,0 +1,21 @@
+O(n^2 + n^2)
+class Solution {
+    public void rotate(int[][] matrix) {
+        int[][] res = new int[matrix.length][matrix.length];
+        int row= 0, col = 0;
+        for(int i = matrix.length - 1; i>=0; i--){
+            row = 0;
+            for(int j = 0; j < matrix.length; j++){
+                res[row][col] = matrix[i][j];
+                row++;
+            }
+             col++;
+        }
+        for(int i = 0 ; i < matrix.length; i++){
+            for(int j = 0; j < matrix.length; j++){
+                matrix[i][j] = res[i][j];   
+            }
+        }
+        
+    }
+}
