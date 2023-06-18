@@ -1,4 +1,4 @@
-//Brute force- O(nlogn + 2n)
+//Brute force- O(nlogn + 2n), O(n)
 
 import java.util.* ;
 import java.io.*; 
