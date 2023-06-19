@@ -9,3 +9,25 @@ class Solution {
        return -1;
     }
 }
+
+
+
+import java.io.*;
+import java.util.* ;
+
+import java.util.ArrayList;
+
+public class Solution{
+    public static int findDuplicate(ArrayList<Integer> arr, int n){
+        // Write your code here.
+        int[] ans = new int[n];
+        Arrays.fill(ans, 0);
+        for(int i = 0; i < arr.size(); i++){
+            if(ans[arr.get(i)] == 1){
+                return arr.get(i);
+            }
+            ans[arr.get(i)] = 1;
+        }
+        return -1;
+    }
+}
