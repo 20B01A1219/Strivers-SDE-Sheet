@@ -1,3 +1,4 @@
+//O(n*m)
 import java.util.ArrayList;
 public class Solution {
     static boolean searchMatrix(ArrayList<ArrayList<Integer>> mat, int target) {
@@ -6,6 +7,30 @@ public class Solution {
             for(int j = 0; j < mat.get(0). size(); j++){
                 if(mat.get(i).get(j) == target)
                    return true;
+            }
+        }
+        return false;
+    }
+}
+
+
+//Better Approach - O(n * log m)
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        for(int i = 0; i < matrix.length; i++){
+            int low = 0, high = matrix[0].length -1;
+            while(low <= high){
+                int mid = (low + high) / 2;
+                System.out.println(matrix[i][mid]);
+                if(matrix[i][mid] == target){
+                    return true;
+                }
+                else if(matrix[i][mid] < target){
+                    low = mid + 1;
+                }
+                else{
+                    high = mid - 1;
+                }
             }
         }
         return false;
