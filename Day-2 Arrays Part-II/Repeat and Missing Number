@@ -20,3 +20,31 @@ public class Solution {
         return new int[]{rep, mis};
     }
 }
+
+
+
+//optimal solution
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+
+    public static int[] missingAndRepeating(ArrayList<Integer> arr, int n) {
+        // Write your code here
+        long sumofn = (n * (n + 1)) / 2;
+        long sumofn2 = (n * (n + 1) * (2 * n + 1))/6;
+        long arrsum = 0;
+        long arrsum2 = 0;
+        for(int i = 0; i < arr.size(); i++){
+            arrsum += arr.get(i);
+            arrsum2 += ((long)arr.get(i) * (long)arr.get(i));
+        }
+        long val1 = arrsum - sumofn;
+        long val2 = arrsum2 - sumofn2;
+        val2 = val2 / val1;
+        long x = (val1 + val2) / 2;
+        long y = val2 - x;
+        return (new int[]{(int)y, (int)x});
+    }
+}
