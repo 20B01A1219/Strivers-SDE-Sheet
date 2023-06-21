@@ -1,0 +1,37 @@
+//Built in method
+class Solution {
+    public double myPow(double x, int n) {
+        return Math.pow(x,n);
+    }
+}
+
+
+//Optimal Approach - O(logn)
+import java.io.*;
+import java.util.* ;
+
+public class Solution {
+    public static int modularExponentiation(int x, int n, int m) {
+        // Write your code here.   
+        long ans = 1;
+        long a = n;
+        long var = (long)x;
+        if(a < 0)
+         a = -(a);
+        while(a > 0){
+            if(a % 2 == 0){
+                var = (var * var)%m;
+                a = a/2;
+            }
+            else{
+                ans = (ans * var)%m;
+                a = a - 1;
+            }
+        }
+        if(n < 0){
+          int res = (int)(1.0/ ans);
+          return res;
+        }  
+        return (int)ans;     
+    }
+}
