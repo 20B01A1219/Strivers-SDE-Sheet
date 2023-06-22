@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.* ;
+
+import java.util.ArrayList;
+
+public class Solution 
+{
+    public static ArrayList<Integer> majorityElementII(ArrayList<Integer> arr) 
+    {
+        ArrayList<Integer> li = new ArrayList<Integer>();
+        HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+        for(int i = 0; i < arr.size(); i++){
+            int value = hm.getOrDefault(arr.get(i), 0);
+            hm.put(arr.get(i), value + 1);
+        }
+        for(Map.Entry<Integer, Integer> h : hm.entrySet()){
+            if(h.getValue() > arr.size() / 3)
+             li.add(h.getKey());  
+        }
+        return li;
+    }
+}
