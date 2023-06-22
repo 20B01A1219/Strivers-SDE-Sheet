@@ -14,3 +14,38 @@ class Solution {
         return -1;
     }
 }
+
+
+//OPtimal
+import java.io.*;
+import java.util.* ;
+
+public class Solution {
+	public static int findMajority(int[] arr, int n) {
+		// Write your code here.
+		int ele = -1, cnt = 0;
+		for(int i = 0; i < n; i++){
+			if(cnt == 0){
+				ele = arr[i];
+				cnt++;
+			}
+			else if(arr[i] == ele){
+				cnt++;
+			}
+			else{
+				cnt--;
+			}
+			
+		}
+		int ans = 0;
+		for(int i = 0; i < n; i++){
+			if(arr[i] == ele){
+				ans++;
+			}
+		}
+		if(ans > n / 2){
+			return ele;
+		}
+		return -1;
+	}
+}
