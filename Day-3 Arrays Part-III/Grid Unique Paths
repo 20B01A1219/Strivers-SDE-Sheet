@@ -14,7 +14,7 @@ class Solution {
     }
 }
 
-//Optimal
+//Better
 import java.util.* ;
 import java.io.*; 
 public class Solution {
