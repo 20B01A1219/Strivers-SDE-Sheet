@@ -20,3 +20,29 @@ public class Solution {
         return result;
     }
 }
+
+
+//Optimal
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        HashSet<Integer> hs = new HashSet<Integer>();
+        if(nums.length == 0) return 0;
+        for(int i = 0; i < nums.length; i++){
+            hs.add(nums[i]);
+        }
+        int  max = 1;
+       for(int num : nums){
+            int cnt = 1;
+            if(hs.contains(num-1)){
+                continue;
+            }
+            num++;
+            while(hs.contains(num)){
+                cnt++;
+                 num = num+1;
+            }
+            max = Math.max(cnt, max);
+        }
+        return max;
+    }
+}
