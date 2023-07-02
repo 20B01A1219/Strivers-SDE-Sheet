@@ -1,0 +1,30 @@
+//Time Complexity : O(n*nlogn) or O(n) based on the map we used
+// Space : O(N)
+
+import java.io.*;
+import java.util.* ;
+
+import java.util.ArrayList;
+
+public class Solution {
+	public static int subarraysXor(ArrayList<Integer> arr, int x) {
+		// Write your code here.
+		int cnt = 0; 
+		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+		hm.put(0,1);
+		int xor = 0;
+		for(int i = 0; i < arr.size(); i++){
+			xor = xor ^ arr.get(i);
+			int tofind = xor ^ x;
+			if(hm.containsKey(tofind)){
+				cnt += hm.get(tofind);
+			}
+			if(hm.containsKey(xor)){
+				hm.put(xor, hm.get(xor) + 1);
+			}
+			else 
+			hm.put(xor,  1);
+		}
+		return cnt;
+	}
+}
