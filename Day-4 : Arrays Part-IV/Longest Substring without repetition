@@ -1,0 +1,24 @@
+//O(n + n), O(n)
+
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+{
+	public static int uniqueSubstrings(String input) 
+    {
+		//write your code here
+		int cnt = 0;
+		int l = 0, r = 0;
+		HashSet<Character> hs = new HashSet<Character>();
+		while(r < input.length()){
+			while(hs.contains(input.charAt(r))){
+				hs.remove(input.charAt(l));
+				l++;
+			}
+			hs.add(input.charAt(r));
+			cnt = Math.max(r - l + 1, cnt);
+			r++;
+		}
+		return cnt;
+	}
+}
